@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kushmitha Nagella | Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #6c63ff;
+            --secondary-color: #4d44db;
+            --dark-color: #2a2a72;
+            --light-color: #f8f9fa;
+            --accent-color: #ff6584;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--dark-color), var(--primary-color));
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            z-index: 2;
+        }
+        
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .skill-badge {
+            background-color: var(--primary-color);
+            color: white;
+            margin: 0.2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+        
+        .navbar.scrolled {
+            background-color: white !important;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 0;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                text-align: center;
+                padding-top: 100px;
+            }
+            
+            .profile-pic {
+                width: 150px;
+                height: 150px;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Kushmitha Nagella</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content" data-aos="fade-right">
+                    <h1 class="display-4 fw-bold mb-4">Hello, I'm <span class="text-warning">Kushmitha Nagella</span></h1>
+                    <p class="lead mb-4">A passionate developer dedicated to creating innovative solutions and enhancing my skills in web development, AI, and computer vision.</p>
+                    <div class="hero-buttons d-flex">
+                        <a href="#projects" class="btn btn-primary btn-lg me-3">View My Work</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">Contact Me</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left">
+                    <img src="http://static.photos/technology/640x360/42" alt="Profile Image" class="img-fluid floating-animation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5 bg-light" id="about">
+        <div class="container py-5">
+            <h2 class="section-title" data-aos="fade-right">About Me</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-center mb-4 mb-lg-0" data-aos="fade-right">
+                    <img src="http://static.photos/people/640x360/23" alt="Profile Picture" class="profile-pic">
+                </div>
+                <div class="col-lg-8" data-aos="fade-left">
+                    <h3 class="mb-3">Kushmitha Nagella</h3>
+                    <p class="lead mb-4">I'm a sincere and dedicated professional with a passion for enhancing my knowledge, skills, and capabilities.</p>
+                    <p>I aspire to work in a challenging business environment where I can add value to the organization. I thrive in team settings and enjoy developing best practices using unconventional and innovative ideas.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="me-2" data-feather="phone"></i> +91 9515088419</li>
+                                <li class="mb-2"><i class="me-2" data-feather="mail"></i> nagellakushmitha@gmail.com</li>
+                                <li><i class="me-2" data-feather="map-pin"></i> 4-211, Mellacheruvu, Suryapet District, Telangana</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex mt-3 mt-md-0">
+                                <a href="#" class="social-icon"><i data-feather="github"></i></a>
+                                <a href="#" class="social-icon"><i data-feather="linkedin"></i></a>
+                                <a href="#" class="social-icon"><i data-feather="twitter"></i></a>
+                                <a href="#" class="social-icon"><i data-feather="instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="py-5" id="education">
+        <div class="container py-5">
+            <h2 class="section-title" data-aos="fade-right">Educational Qualifications</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">B.Tech</h5>
+                            <p class="card-text">JNTU Hyderabad</p>
+                            <p class="text-muted">2021-2024</p>
+                            <p>Vidya Jyothi Institute of Technology</p>
+                            <p class="fw-bold">9.02 CGPA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Polytechnic</h5>
+                            <p class="card-text">Board of Intermediate, Telangana</p>
+                            <p class="text-muted">2017-2021</p>
+                            <p>Govt Institute of Electronics</p>
+                            <p class="fw-bold">88.47%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">10th</h5>
+                            <p class="card-text">SSC, Telangana</p>
+                            <p class="text-muted">2016-2017</p>
+                            <p>Krushi Vidhyalayam</p>
+                            <p class="fw-bold">8.8 CGPA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-5 bg-light" id="skills">
+        <div class="container py-5">
+            <h2 class="section-title" data-aos="fade-right">Technical Skills</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-up">
+                    <h4 class="mb-3">Programming Languages</h4>
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">HTML</span>
+                    <span class="skill-badge">CSS</span>
+                    <span class="skill-badge">JavaScript</span>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="mb-3">Database & Tools</h4>
+                    <span class="skill-badge">SQL</span>
+                    <span class="skill-badge">MS Excel</span>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="mb-3">Frameworks & Technologies</h4>
+                    <span class="skill-badge">Computer Vision</span>
+                    <span class="skill-badge">Deep Learning</span>
+                    <span class="skill-badge">AI</span>
+                    <span class="skill-badge">MediaPipe</span>
+                    <span class="skill-badge">BlazePose</span>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="mb-3">Other Skills</h4>
+                    <span class="skill-badge">Problem Solving</span>
+                    <span class="skill-badge">Team Collaboration</span>
+                    <span class="skill-badge">Innovative Thinking</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="py-5" id="projects">
+        <div class="container py-5">
+            <h2 class="section-title" data-aos="fade-right">Projects</h2>
+            <div class="row">
+                <!-- Project 1 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card project-card h-100">
+                        <img src="http://static.photos/ecommerce/640x360/1" class="card-img-top" alt="Online Shopping">
+                        <div class="card-body">
+                            <h5 class="card-title">Online Shopping</h5>
+                            <p class="card-text">A simple frontend page of an online shopping website designed for a user-friendly customer experience.</p>
+                            <p><strong>Technologies:</strong> HTML, CSS</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project1Modal">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card project-card h-100">
+                        <img src="http://static.photos/technology/640x360/2" class="card-img-top" alt="Age and Gender Detection">
+                        <div class="card-body">
+                            <h5 class="card-title">Age and Gender Detection</h5>
+                            <p class="card-text">A software that detects age and gender by scanning the face and iris using computer vision techniques.</p>
+                            <p><strong>Technologies:</strong> Computer Vision, Deep Learning</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project2Modal">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card project-card h-100">
+                        <img src="http://static.photos/fitness/640x360/3" class="card-img-top" alt="Fit Vibes">
+                        <div class="card-body">
+                            <h5 class="card-title">Fit Vibes</h5>
+                            <p class="card-text">A home fitness application that shows the correct posture for exercises by capturing user movements.</p>
+                            <p><strong>Technologies:</strong> AI, MediaPipe, BlazePose</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project3Modal">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modals -->
+    <!-- Project 1 Modal -->
+    <div class="modal fade" id="project1Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Online Shopping Website</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="http://static.photos/ecommerce/1200x630/1" class="img-fluid mb-3" alt="Online Shopping">
+                    <p>This project is a frontend implementation of an online shopping website designed to provide a seamless user experience. The interface is clean, intuitive, and responsive across all devices.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li>Responsive design for all screen sizes</li>
+                        <li>Product categorization and filtering</li>
+                        <li>Shopping cart functionality</li>
+                        <li>User-friendly navigation</li>
+                    </ul>
+                    <p><strong>Technologies Used:</strong> HTML5, CSS3, JavaScript (for interactive elements)</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">View Live Demo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 2 Modal -->
+    <div class="modal fade" id="project2Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Age and Gender Detection</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ratio ratio-16x9 mb-3">
+                        <video controls>
+                            <source src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <p>This project uses computer vision and deep learning techniques to detect the age and gender of a person by analyzing their facial features and iris patterns.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li>Real-time face detection and analysis</li>
+                        <li>Age estimation with ±3 years accuracy</li>
+                        <li>Gender classification with high accuracy</li>
+                        <li>Iris pattern analysis for additional verification</li>
+                    </ul>
+                    <p><strong>Technologies Used:</strong> Python, OpenCV, TensorFlow, Deep Learning algorithms</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">View GitHub Repository</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 3 Modal -->
+    <div class="modal fade" id="project3Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Fit Vibes - Home Fitness App</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="http://static.photos/fitness/1200x630/3" class="img-fluid mb-3" alt="Fit Vibes">
+                    <p>Fit Vibes is an innovative home fitness application that uses AI to guide users through exercises by capturing their movements and providing real-time feedback on their posture and form.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li>Real-time pose detection and analysis</li>
+                        <li>Interactive exercise guides with visual feedback</li>
+                        <li>Personalized workout recommendations</li>
+                        <li>Progress tracking and analytics</li>
+                    </ul>
+                    <p><strong>Technologies Used:</strong> Python, MediaPipe, BlazePose, AI algorithms</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">View Case Study</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Embedded Media -->
+      <div class="mt-5 text-center">
+        <h4>Project Demo</h4>
+        <video controls width="80%" class="rounded shadow">
+          <source src="demo.mp4" type="video/mp4">
+        </video>
+        <h4 class="mt-4">Background Music</h4>
+        <audio controls>
+          <source src="intro.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+  </section>
+
+    <!-- Certifications Section -->
+    <section class="py-5 bg-light" id="certifications">
+        <div class="container py-5">
+            <h2 class="section-title" data-aos="fade-right">Certifications</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Web Development (HTML & CSS)</h5>
+                            <p class="card-text">1stop IIT Bombay</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Certificate of Participation</small>
+                                <button class="btn btn-sm btn-outline-primary">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Programming Essentials in Python</h5>
+                            <p class="card-text">CISCO</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Professional Certification</small>
+                                <button class="btn btn-sm btn-outline-primary">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Python Completion</h5>
+                            <p class="card-text">Spoken Tutorial IIT Bombay</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Completion Certificate</small>
+                                <button class="btn btn-sm btn-outline-primary">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Hackathon Participation</h5>
+                            <p class="card-text">Various Events</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Participation Certificate</small>
+                                <button class="btn btn-sm btn-outline-primary">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">SQL Certification</h5>
+                            <p class="card-text">Geekster</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Professional Certification</small>
+                                <button class="btn btn-sm btn-outline-primary">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5" id="contact">
+        <div class="container py-5">
+            <h2 class="section-title" data-aos="fade-right">Contact Me</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Your Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">Get in Touch</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="me-3 mt-1" data-feather="mail"></i>
+                                    <div>
+                                        <h6 class="mb-1">Email</h6>
+                                        <a href="mailto:nagellakushmitha@gmail.com" class="text-decoration-none">nagellakushmitha@gmail.com</a>
+                                    </div>
+                                </li>
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="me-3 mt-1" data-feather="phone"></i>
+                                    <div>
+                                        <h6 class="mb-1">Phone</h6>
+                                        <a href="tel:+917780251559" class="text-decoration-none">+91 9515088419</a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-start">
+                                    <i class="me-3 mt-1" data-feather="map-pin"></i>
+                                    <div>
+                                        <h6 class="mb-1">Address</h6>
+                                        <p>4-211, Mellacheruvu, Suryapet District, Telangana</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="mt-4">
+                                <h6 class="mb-3">Connect with me</h6>
+                                <div class="d-flex">
+                                    <a href="#" class="social-icon me-2"><i data-feather="github"></i></a>
+                                    <a href="#" class="social-icon me-2"><i data-feather="linkedin"></i></a>
+                                    <a href="#" class="social-icon me-2"><i data-feather="twitter"></i></a>
+                                    <a href="#" class="social-icon"><i data-feather="instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 Kushmitha Nagella. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed with <i class="text-danger" data-feather="heart"></i> by Kushmitha</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Background (optional) -->
+    <audio loop id="bgAudio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+    <button id="audioToggle" class="btn btn-sm btn-primary position-fixed bottom-0 end-0 m-3 rounded-circle" style="width: 50px; height: 50px;">
+        <i data-feather="music"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Feather Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Initialize Feather Icons
+        feather.replace();
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('mainNav');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled', 'shadow-sm');
+                navbar.classList.remove('navbar-dark');
+                navbar.classList.add('navbar-light');
+            } else {
+                navbar.classList.remove('scrolled', 'shadow-sm');
+                navbar.classList.add('navbar-dark');
+                navbar.classList.remove('navbar-light');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Background audio toggle
+        const bgAudio = document.getElementById('bgAudio');
+        const audioToggle = document.getElementById('audioToggle');
+        let isPlaying = false;
+        
+        audioToggle.addEventListener('click', function() {
+            if (isPlaying) {
+                bgAudio.pause();
+                this.innerHTML = '<i data-feather="music"></i>';
+                feather.replace();
+            } else {
+                bgAudio.play();
+                this.innerHTML = '<i data-feather="pause"></i>';
+                feather.replace();
+            }
+            isPlaying = !isPlaying;
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
